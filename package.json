@@ -1,5 +1,5 @@
 {
-  "name": "index.js",
+  "name": "festilove",
   "version": "1.0.0",
   "description": "index",
   "main": "index.js",
@@ -20,10 +20,14 @@
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^6.2.0",
+    "dotenv-json": "^1.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "firebase": "^6.0.4",
+    "firebase-admin": "^8.0.0",
     "path": "^0.12.7",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
-  }
+  },
+  "devDependencies": {}
 }
