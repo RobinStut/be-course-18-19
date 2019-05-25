@@ -1,239 +1,57 @@
-# ![Backend - Course 2018-2019][banner]
+prototype: [https://wd2stut.herokuapp.com/](https://wd2stut.herokuapp.com/)
 
-## Table of Contents
+bekijk de code op: [branch week2](https://github.com/RobinStut/web-design-1819/tree/week2)
 
-*   [Synopsis](#synopsis)
-*   [Description](#description)
-*   [Communication](#communication)
-*   [Goals](#goals)
-*   [Grade](#grade)
-*   [Resources](/resources.md)
-*   [Conduct](#conduct)
-*   [License](#license)
+# Web Design @cmda-minor-web 1819
+Werken met en voor echte mensen.
 
-## Synopsis
+## Inleiding
+> Marijn is motorisch gestoord. Hij gebruikt zijn computer dus anders dan wij. Hij heeft veel moeite met fijne motoriek. Hij gebruikt zijn toetsenbord om te navigeren, en in de Accessibility settings van zijn Mac heeft hij Sticky Keys aan staan.
 
-The course **Backend** is given at [**@CMDA**][cmda] in 2019 between
-4 February and 20 June.
+### Wie is Marijn?
+Marijn heeft een motorische handicap waardoor hij handelingen van zijn fijne motoriek niet onder controle heeft. Om een beeld te krijgen van hoe Marijn door het leven gaat, is er een video beschikbaar waar je een beeld kan krijgen van waar Marijn eigenlijk last van heeft. *Je kunt de video bekijken door op de afbeelding te klikken.*
 
-*   **Course**: Backend
-*   **Coordinator**: [Danny de Vries][dangit]
-*   **Lecturers**:
-    [Danny de Vries][dangit] ([**@dandevri**][danweb]) (_bt-1_ and _bt-3_) and
-    [Laurens Aarnoudse][razgit] ([**@razpudding**][razweb])
-    (_bt-2_)
-*   **SIS**: Backend Development
-*   **Credit**: 3 ECTS
-*   **Academic year**: 2018-2019
-*   **Period**: Quarter 3 (spring)
-*   **Programme**: Communication and Multimedia Design (full time bachelor)
-*   **Language**: Dutch instructions and English resources
-*   **Entry requirements**: N/A
+[![Martijn Meijles op youtube ](https://i.ytimg.com/vi/8V25yphVEIo/maxresdefault.jpg)](https://www.youtube.com/watch?v=8V25yphVEIo)
 
-## Description
-In Backend we peek behind the curtains and inspect what’s behind the web. You build web apps with [Node.js][node], communicate with [HTTP][http], and store data in a database with [MongoDB][mongodb]. In this course you’ll advance your web dev skills. You’ll learn to use computers to actually make what you design work: people can actually fill in forms, like things, and upload files.
+### Een nuttig product voor Marijn
 
-Backend is an elective course given in Quarter 3 (spring) after the core curriculum of our programme, building further on knowledge acquired in *Internetstandaarden*, *Inleiding Programmeren*, and *Blok Web*. 
+Een van de lastige dingen waar Marijn niet mee om kan gaan zijn *Drag and Drop* elementen. Wanneer je een lijstje wilt orderen zou dit voor hem een onmogelijke opdracht zijn. Marijn is een groot Metal fan, en hoe leuk zou het dan zijn dat hij zelf een Metal lijst zou kunnen samenstellen op spotify waar hij zijn eigen volgorde van zou kunnen bepalen.
 
-This course is chosen alongside **Frontend 2** and **Project Tech**, together making up Block Tech. In project Tech you’ll learn how to navigate the command line, version control with Git, and deploy your app. In Project Tech you’ll apply your newfound backend skills.
+### Prototype test 1
 
-If you’d like to continue with web development after this course, do a tech internship next quarter (Q4), choose the [Tech Track][track] for the fall semester next year, and pick [Minor Everything Web][minor] in the spring semester after that.
+Na het samenstellen van een aantal Metal nummers ben ik begonnen met het maken van een Spotify lijst die gesorteerd kon worden met bepaalde toets aanslagen. Mijn aanname was dat omdat Marijn moeite heeft met specifieke taken, dat ik de raakvelden van de besturing heel groot moest trekken. Op deze mannier was mijn aanname dat Marijn gemakkelijker zou kunnen navigeren door het lijstje. Zodra er op __Tab__ geklikt werd, kwam er een focus op een element, deze focus kon je verplaatsen met behulp van het toetsenbord. Het vastpakken van een element zou moeten gebeuren met de spatietoets. Tijdens het testen op zijn computer bleek dat de __Tab__ toets uitgeschakeld staat in Safari. Dit zorgde ervoor dat mijn prototype niet getest kon worden op zijn browser. Achteraf bleek dat als het element een autofocus zou hebben, dat het wel gewerkt zou hebben.
+![prototype 1.1](p1-1.png)
 
-## Communication
+Een ander prototype die ik had om te testen was het interface van Spotify. In de app van spotify is het lastig om te navigeren met behulp van __Tap__ of __W A S D__ toetsen. Door gebruik te maken van __Spacial Navigation__ wilde ik testen of het voor Marijn gemakkelijker werd om te navigeren. Alle functionaliteit van mijn eerste test was niet ingebouwd in dit prototype. Tijdens het testen vroeg Marijn zich af waarom ik gekozen had voor de toetsen __W A S D__, dit omdat het voor hem te nauwkeurige toetsen zijn die te dicht bij elkaar liggen. Na de eerste ontmoeting en het afronden van de testen ben ik gaan nadenken hoe ik de navigatie voor Marijn nog makkelijker en leuker kan maken.
+![prototype 1.2](p1-2.png)
 
-*   [GitHub][gh] — Main source of information, assignments, important dates,
-    and more
-*   [Examples][examples] — Example code from slides
-*   [Slack][slack] — General chatter and Q&A
-*   [Moodle][moodle] — Schedulers
+### Iteratie 1
+
+Na het testen van mijn prototype bedacht ik me het volgende. Doordat zijn motoriek erg grof is en specifieke handelingen veel inspanning vragen, ben ik gaan kijken naar een alternatieve navigatie methode. Doordat Marijn zijn wagen bestuurt met behulp van een __Joystick__ werd ik geinspireerd door zijn manier van navigeren. Vervolgens heb ik een __Joystick__ uitgezocht met robuuste knoppen, die Marijn zou kunnen gebruiken voor het navigeren. De __Joystick__ is bedoeld om te gamen op een android telefoon of Windows computer, waardoor ik op zoek moest gaan naar een omweg. Door de aplicatie [Joystick Mapper](https://joystickmapper.com/) aan te schaffen was het mogelijk om de keycodes te koppelen aan bestaande toetsen op een toetsenbord.
+
+![Joystick](https://www.speedlink.com/out/pictures/master/product/1/sl-650212-bkrd_rgb_001.jpg)
+
+Nadat alles werkend gemaakt was met de __Joystick__ heb ik de twee prototypes samengevoegd tot 1 prototype. Dit vroeg veel energie aangezien beide functionaliteiten elkaar overschreven. Vervolgens heb ik de focuskleur aangepast zodat er op elke browser een groter contrast is, deze viel wat weg door de donkere achtergrond. Ook heb ik een autofocus toegevoegd waardoor er direct genavigeerd kon worden in het prototype.
 
 
-If you have questions:
+### Prototype test 2
 
-*   Read the manual for the technology in question
-    ([Git](https://git-scm.com/docs),
-    [GitHub](https://guides.github.com),
-    [Node](https://nodejs.org/api/),
-    [npm](https://docs.npmjs.com),
-    [express](http://expressjs.com/en/4x/api.html),
-    [MongoDB](https://docs.mongodb.com))
-*   [Browse examples][examples]
-*   [Search StackOverflow][stackoverflow]
-*   [Use a search engine like DuckDuckGo][duckduckgo]
-*   [Ask questions on Slack][slack]
-*   [Contact a lecturer][synopsis]
+Tijdens het testen van de iteraties op het vorige prototype werd Marijn erg enthousiast van de Joystick. Het was even zoeken naar de juiste plek voor de joystick om deze te bedienen. Waar ik al bang voor was, was dat de __Joystick__ te ligt was waardoor het voor Marijn lastig wordt om de joystick op 1 vast punt te laten staan. Tijdens het testen hield ik daarom de controller op zijn plek. Het navigeren ging stukken beter dan ik had verwacht. Af en toe stootte Marijn te snel tegen de joystick aan, waardoor de focus buiten het canvas belandde omdat er meerdere toetsaanslagen plaats vonden. Ondanks dat wist Marijn mijn test goed te doorlopen en was het voor hem mogelijk bepaalde nummers op volgorde te sorteren. 
 
-## Goals
+![prototype 2.1](p2-1.png)
+>De oranje focus geeft aan waar je heen genavigeerd bent
 
-#### Main goals
-
-The main goals in this course:
-
-*   You can build web apps with Node
-*   You can store data in a database
-*   You can use packages from npm
-*   You can render data server-side with templating
-*   You can communicate over http
-
-#### Sub goals
-
-In practice you’ll learn to:
-
-* <a name="subgoal-1"></a>
-    Understand Node principles ([**week 1**][w1])
-*  <a name="subgoal-2"></a>
-    Use packages from npm ([**week 1**][w1])
-* <a name="subgoal-3"></a>
-    Communicate over HTTP ([**week 2**][w2])
-* <a name="subgoal-4"></a>
-    Use web frameworks like express ([**week 2**][w2])
-* <a name="subgoal-5"></a>
-    Render data server-side ([**week 2**][w2])
-* <a name="subgoal-6"></a>
-    Upload data and files to servers ([**week 3**][w3])
-* <a name="subgoal-7"></a>
-    Respond with data from a server ([**week 3**][w4])
-* <a name="subgoal-8"></a>
-    Request data from clients ([**week 3**][w4])
-* <a name="subgoal-9"></a>
-    Connect to database with Mongoose ([**week 4**][w4])
-* <a name="subgoal-10"></a>
-    Get data from MongoDB ([**week 4**][w4])
-* <a name="subgoal-11"></a>
-    Debugging, error handling and deploying ([**week 4**][w4])
-
-The below table breaks down the general time needed per week.
-
-| Week | Effort | Topic            | Activities                                             |
-| ---- | -----: | ---------------- | ------------------------------------------------------ |
-| 0    |  NaN   | getting started  | [getting started][gs]                 |
-| 1    |  9:20h | node & npm       | [lab][w1lab], [lecture][w1lec], [assignments][w1a]     |
-| 2    |  9:20h | http & express   | [lab][w2lab], [lecture][w2lec], [assignments][w2a]     |
-| 3    |  9:20h | data & requests  | [lab][w3lab], [lecture][w3lec], [assignments][w3a]     |
-| 4    |  9:20h | databases        | [lab][w4lab], [lecture][w4lec], [assignments][w4a]     |
-| 5    |  NaN   | assessment 1     | [a1 (oral test)][grading]                              |
-| 6    | 13:20h | prototype        | [lab][w6lab],  work on prototype                       |
-| 7    |  NaN   | assessment 2     | [a2 (oral test)][grading]                              |
-
-<details>
-    <summary>Schedule</summary>
-    <img src="assets/schedule.jpg" alt="Block tech schedule overview">
-</details>
-
-## Grade
-
-| Task                                |   Weight |
-| ----------------------------------  | -------: |
-| [Participation][grading]            |      10% |
-| [Assessment 1][grading] (oral test)  |      60% |
-| [Assessment 2][grading] (oral test)  |      30% |
-| **Total**                           | **100%** |
+![prototype 2.2](p2-2.png)
+>De groene focus geeft aan dat het element vastgepakt is, deze is nu te verplaatsen m.b.v de Joystick
 
 
-```js
-if (!participation && !a1 && !a2) {
-  grade = 'GR'
-} else if (a1 < 5.5 || a2 < 5.5) {
-  grade = 1
-} else {
-  grade = (participation * 0.1) + (a1 * 0.6) + (a2 * 0.3)
-}
-```
 
-## Programme
+### Iteratie 2
 
-This course is given at [Communication and Multimedia Design][bachelor], a
-design bachelor focused on interactive digital products and services.  CMD is
-part of the [Faculty of Digital Media and Creative Industries][faculty] at the
-[Amsterdam University of Applied Sciences][university].
+Na het afronden van de 2de testronde heb ik een __Timeout__ toegevoegd aan het prototype van 0.3 seconden. Hierdoor wordt er voorkomen dat onbedoelde dubbele aanslagen verkomen worden. 
 
-## Conduct
+### Dingen die ik nog had willen toevoegen:
 
-This course has a [Code of Conduct][coc].  Anyone interacting with this
-repository, organisation, or community is bound by it.
-
-Staff and students of the Amsterdam University of Applied Sciences (Hogeschool
-van Amsterdam) are additionally bound by the [Regulation Undesirable
-Conduct][ruc] ([Regeling Ongewenst Gedrag][rog]).
-
-## License
-
-Unless stated otherwise, code is [MIT][] © [Titus Wormer][author1] and Modified by [Danny de Vries][author2],
-docs and images are [CC-BY-4.0][].
-
-[banner]: https://cmda-bt.github.io/be-course-18-19/assets/banner.svg
-[cmda]: https://github.com/cmda
-[dangit]: https://github.com/dandevri
-[danweb]: https://github.com/dandevri
-[razgit]: https://github.com/razpudding
-[razweb]: https://github.com/razpudding
-[node]: https://nodejs.org/en/
-[mongodb]: https://www.mongodb.com/
-[http]: https://tools.ietf.org/html/rfc2068
-[minor]: https://cmda.github.io/minor-everything-web/
-[track]: https://github.com/cmda-tt
-[gh]: https://github.com/cmda-be/course-18-19
-[examples]: /examples
-[slack]: https://cmda-tech.slack.com/
-[moodle]: https://moodle.cmd.hva.nl/course/view.php?id=431
-[examples]: examples
-[stackoverflow]: https://stackoverflow.com
-[duckduckgo]: https://duckduckgo.com
-[synopsis]: #synopsis
-[grading]: grading.md
-[bachelor]: https://www.cmd-amsterdam.nl/english/
-[faculty]: https://www.amsterdamuas.com/faculty/fdmci/faculty-of-digital-media-and-creative-industries.html
-[university]: https://www.amsterdamuas.com
-[coc]: code-of-conduct.md
-[ruc]: https://www.amsterdamuas.com/practical-matters/algemeen/hva-breed/juridische-zaken/legal-affairs/regulation-undesirable-conduct/regulation-undesirable-conduct.html#anker-3-complaints-authority
-[rog]: https://www.hva.nl/praktisch/algemeen/hva-breed/juridische-zaken/loket-beroep-bezwaar-en-klacht/regeling-ongewenst-gedrag/regeling-ongewenst-gedrag.html?origin=gbS4rg%2FDTZuxQ6lGVF%2BN1A
-[author1]: https://wooorm.com
-[author2]: https://dandevri.es
-[mit]: license.md#code
-[cc-by-4.0]: license.md#documentation-and-images
-
-[gs]: getting-started.md
-
-[w1]: week-1.md
-
-[w2]: week-2.md
-
-[w3]: week-3.md
-
-[w4]: week-4.md
-
-[w5]: week-5.md
-
-[w6]: week-6.md
-
-[w1lec]: week-1.md#lecture
-
-[w2lec]: week-2.md#lecture
-
-[w3lec]: week-3.md#lecture
-
-[w4lec]: week-4.md#lecture
-
-[w5lec]: week-5.md#lecture
-
-[w6lec]: week-6.md#lecture
-
-[w1lab]: week-1.md#lab
-
-[w2lab]: week-2.md#lab
-
-[w3lab]: week-3.md#lab
-
-[w4lab]: week-4.md#lab
-
-[w5lab]: week-5.md#lab
-
-[w6lab]: week-6.md#lab
-
-[w1a]: week-1.md#assignments
-
-[w2a]: week-2.md#assignments
-
-[w3a]: week-3.md#assignments
-
-[w4a]: week-4.md#assignments
+- [ ] De focus willen locken tot een bepaald gebied, waardoor deze niet kan verdwijnen.
+- [ ] Wanneer er naar links wordt genavigeerd in het meest linker kolom, de focus verplaatsen naar de meest rechter kolom.
+- [ ] Een virtuele Joystick aangeroepen kan worden met een simpele toets, waarmee je vervolgens op een grappige wijze gebruik kan maken van de Joystick zonder een fysieke Joystick
