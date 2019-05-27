@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 const path = require("path");
 const rp = require('request-promise');
 const cheerio = require('cheerio');
@@ -23,7 +25,7 @@ app.use(express.static(path.join(__dirname, "./static")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.listen(process.env.PORT || 3000);
+
 
 const admin = require('firebase-admin');
 
@@ -51,93 +53,106 @@ firebase.initializeApp(firebaseConfig);
 
 app.get("/", async (req, res) => {
 
-  function retreiveFestivalData() {
-    return firebase.database().ref('/festivalLijst/').once('value').then(function (snapshot) {
-      const data = snapshot.val()
-      return data
-    })
-  }
+  const retreivedData = await retreiveFestivalDataFromDb()
 
-  const retreivedData = await retreiveFestivalData()
-
-  // console.log(retreivedData);
   res.render("pages/index", {
     data: retreivedData
   })
-  // res.json(retreivedData)
 });
 
-return firebase.database().ref('/festivalLijst/').once('value').then(function (snapshot) {
-    const timestamp = snapshot.val()[0]
-    return timestamp
+
+function retreiveFestivalDataFromDb() {
+  return firebase.database().ref('/festivalLijst/').once('value').then(function (snapshot) {
+    const data = snapshot.val()
+    return data
   })
-  .then(data => {
-    let scrapedFestivalData = [Date.now(), ]
-    if (Date.now() > (timestampInDb + 86400000)) {
+}
 
-      const options = {
-        uri: 'https://festivalfans.nl/agenda/',
-        transform: function (body) {
-          return cheerio.load(body);
-        }
-      };
+const retreivedFestivalData = firebase.database().ref('/festivalLijst/').once('value').then(function (snapshot) {
+  const data = snapshot.val()
+  return data
+}).then(data => {
+  let scrapedFestivalData = [Date.now(), ]
 
-      rp(options)
-        .then(function ($) {
-          $('div.ev2page').children("script").each(function (i, element) {
-            const scriptTag = JSON.parse($(this).html())
-            console.log('object');
-            console.log(scriptTag);
+  if (Date.now() > (Number(data[0]) + 86400000)) {
 
-            const rx = /(\d{4})-(\d{2})-(\d{2})T(\d{2}:\d{2}).*/g
+    const options = {
+      uri: 'https://festivalfans.nl/agenda/',
+      transform: function (body) {
+        return cheerio.load(body);
+      }
+    };
 
-            let startDateObj
-            const startDate = scriptTag.startDate.replace(rx, (...x) => {
-              startDateObj = {
-                year: x[1],
-                month: x[2],
-                day: x[3],
-                hour: x[4]
-              }
-            })
+    rp(options)
+      .then(function ($) {
+        $('div.ev2page').children("script").each(function (i, element) {
+          const scriptTag = JSON.parse($(this).html())
+          console.log('object');
+          console.log(scriptTag);
 
-            let endDateObj
-            const endDate = scriptTag.endDate.replace(rx, (...x) => {
-              endDateObj = {
-                year: x[1],
-                month: x[2],
-                day: x[3],
-                hour: x[4]
-              }
-            })
+          const rx = /(\d{4})-(\d{2})-(\d{2})T(\d{2}:\d{2}).*/g
 
-            const newdata = {
-              name: scriptTag.name,
-              plaats: scriptTag.location.address.addressLocality,
-              adres: scriptTag.location.name,
-              startDate: startDateObj,
-              endDate: endDateObj,
-              image: scriptTag.image
-
+          let startDateObj
+          const startDate = scriptTag.startDate.replace(rx, (...x) => {
+            startDateObj = {
+              year: x[1],
+              month: x[2],
+              day: x[3],
+              hour: x[4]
             }
-            // console.log('newdata' + newdata);
+          })
 
-            scrapedFestivalData.push(newdata);
-            console.log('objectend');
-          });
-        })
-        .then(write => {
-          firebase.database().ref('festivalLijst/').set(scrapedFestivalData);
+          let endDateObj
+          const endDate = scriptTag.endDate.replace(rx, (...x) => {
+            endDateObj = {
+              year: x[1],
+              month: x[2],
+              day: x[3],
+              hour: x[4]
+            }
+          })
 
-        })
+          const newdata = {
+            name: scriptTag.name,
+            plaats: scriptTag.location.address.addressLocality,
+            adres: scriptTag.location.name,
+            startDate: startDateObj,
+            endDate: endDateObj,
+            image: scriptTag.image
+          }
 
-        .catch(function (err) {
-          console.log(err);
+          scrapedFestivalData.push(newdata);
+          console.log('objectend');
         });
+      })
+      .then(write => {
+        firebase.database().ref('festivalLijst/').set(scrapedFestivalData);
+      })
 
-    } else {
-      //use old data
-      scrapedFestivalData.push(data)
-      console.log('use old data');
-    }
-  })
+      .catch(function (err) {
+        console.log(err);
+      });
+
+  } else {
+    //use old data
+    scrapedFestivalData.push(data)
+    console.log('use old data');
+
+  }
+})
+
+
+
+io.on("connection", async function (socket) {
+
+  const festivalData = await retreiveFestivalDataFromDb()
+
+  socket.emit('festivalData', {
+    festivalData: festivalData
+  });
+
+});
+
+
+
+server.listen(process.env.PORT || 3000);

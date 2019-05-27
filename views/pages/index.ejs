@@ -10,14 +10,17 @@
 
   <h1>Hey</h1>
 
+
+
   <% for (let i = 0; i < data.length; i ++) { %>
-  <%= data[i].name  %>
-  <% if(i > 0 && i < 30){ %> <p> <%= data[i].startDate %></p><% } %>
-
-
-
-
-
+  <% if(i > 0 && i < 30){ %>
+  <section class="festivalChoice" id="<%= data[i].name %>">
+    <h2><%= data[i].startDate.day  %> <%= data[i].startDate.month %><br> <%= data[i].startDate.year %></h2>
+    <h3> <%= data[i].name %></h3>
+    <p> <%= data[i].adres %>, <%= data[i].plaats %></p>
+    <time><%= data[i].startDate.hour %> - <%= data[i].endDate.hour  %></time>
+  </section>
+  <% } %>
   <%}%>
 
 
