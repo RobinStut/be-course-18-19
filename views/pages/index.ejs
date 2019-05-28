@@ -11,18 +11,32 @@
   <h1>Hey</h1>
 
 
+  <input type="text" id="festivalSearchField" placeholder="Zoek een festival.." title="Zoek een festival..">
+  <div class="festivalWrapper">
 
-  <% for (let i = 0; i < data.length; i ++) { %>
-  <% if(i > 0 && i < 30){ %>
-  <section class="festivalChoice" id="<%= data[i].name %>">
-    <h2><%= data[i].startDate.day  %> <%= data[i].startDate.month %><br> <%= data[i].startDate.year %></h2>
-    <h3> <%= data[i].name %></h3>
-    <p> <%= data[i].adres %>, <%= data[i].plaats %></p>
-    <time><%= data[i].startDate.hour %> - <%= data[i].endDate.hour  %></time>
-  </section>
-  <% } %>
-  <%}%>
 
+    <form id="festivalSelectionForm">
+
+      <% for (let i = 0; i < data.length; i ++) { %>
+      <% if(i > 0 ){ %>
+
+      <input type="checkbox" id="<%= data[i].name %>" name="festivalChoice">
+      <label for="<%= data[i].name %>">
+        <section class="festivalChoice" id="<%= data[i].name %>">
+          <h2><%= data[i].startDate.day  %> <%= data[i].startDate.month %><br> <%= data[i].startDate.year %></h2>
+          <h3> <%= data[i].name %></h3>
+          <p> <%= data[i].adres %>, <%= data[i].plaats %></p>
+          <time><%= data[i].startDate.hour %> - <%= data[i].endDate.hour  %></time>
+        </section>
+      </label>
+
+      <% } %>
+      <%}%>
+
+    <button id="festivalSelectionSubmit">Keus bevestigen</button>
+  </form>
+  
+</div>
 
 
   <% include ../partials/footer %>

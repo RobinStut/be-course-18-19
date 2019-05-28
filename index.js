@@ -25,8 +25,6 @@ app.use(express.static(path.join(__dirname, "./static")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-
-
 const admin = require('firebase-admin');
 
 const serviceAccount = require('./static/backend-robinstut-firebase-adminsdk-e7366-9cc3556bac.json')
@@ -58,6 +56,23 @@ app.get("/", async (req, res) => {
   res.render("pages/index", {
     data: retreivedData
   })
+});
+
+
+app.get("/updateFestivalPreferences/:clientId/:selectedFestivalArray/", async function (req, res) {
+  const clientId = req.params.clientId
+  console.log(clientId);
+  const selectedFestivalArray = req.params.selectedFestivalArray.split(",")
+  // var array = string.split(",");
+  console.log(selectedFestivalArray);
+
+  function writeData() {
+    const dbRefObject = firebase.database().ref().child(`/users/${clientId}/festivalPreferences`)
+    dbRefObject.set(selectedFestivalArray);
+  }
+  writeData()
+
+
 });
 
 

@@ -1,3 +1,45 @@
 svg {
     max-width: 8rem;
 }
+
+.festivalChoice {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    /* background-color: red; */
+    margin: 1em;
+}
+
+.festivalChoice h2 {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    font-size: 40px;
+    margin: 0;
+    align-self: center;
+}
+
+.festivalChoice h3,
+p,
+time {
+    margin: .5em 0;
+}
+
+.festivalWrapper input:checked+label {
+    display: block;
+    background-color: blue;
+}
+
+.festivalWrapper input {
+    display: none;
+}
+
+#festivalSelectionSubmit {
+    grid-row-start: 1;
+    grid-column-end: 3;
+    grid-column-start: 1;
+}
+
+#festivalSelectionForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
