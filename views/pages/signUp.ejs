@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<% include ../partials/head %>
+	</head>
+
+	<body>
+		<% include ../partials/nav %>
+
+		<form
+			id="loginForm"
+			action="/aanmelden"
+			method="POST"
+			enctype="application/x-www-form-urlencoded"
+		>
+			<label for="name">
+				voornaam
+				<input
+					type="text"
+					id="name"
+					name="name"
+					placeholder="vul hier je voornaam in"
+					required
+				/>
+			</label>
+
+			<label for="email">
+				email adres
+				<input
+					type="text"
+					id="email"
+					name="email"
+					placeholder="vul hier je email in"
+					required
+				/>
+			</label>
+
+			<label for="password">
+				wachtwoord
+				<input
+					type="password"
+					id="password"
+					name="password"
+					placeholder="vul hier je wachtwoord in"
+					required
+				/>
+			</label>
+
+			<label for="repeatPassword">
+				herhaal wachtwoord
+				<div id="passwordStatus" class=""></div>
+				<input
+					type="password"
+					id="repeatPassword"
+					name="pasrepeatPasswordsword"
+					placeholder="vul hier nogmaals je wachtwoord in"
+					required
+				/>
+			</label>
+			<button type="submit" id="submit">
+				Aanmelden
+			</button>
+		</form>
+
+		<% include ../partials/footer %>
+	</body>
+</html>

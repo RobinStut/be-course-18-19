@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/RobinStut/be-course-18-19#readme",
   "dependencies": {
+    "argon2": "^0.24.0",
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^6.2.0",
@@ -25,6 +26,7 @@
     "express": "^4.16.4",
     "firebase": "^6.0.4",
     "firebase-admin": "^8.0.0",
+    "mongodb": "^3.2.7",
     "path": "^0.12.7",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",

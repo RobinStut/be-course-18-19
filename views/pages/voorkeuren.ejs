@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<% include ../partials/head %>
+	</head>
+
+	<body>
+		<% include ../partials/nav %>
+
+		<h1>Voorkeuren</h1>
+		<form
+			id="loginForm"
+			action="/voorkeuren"
+			method="POST"
+			enctype="application/x-www-form-urlencoded"
+		>
+			<section class="gender">
+				<h3>Ik ben een</h3>
+				<label for="genderMan">
+					man
+					<input type="radio" id="genderMan" name="gender" value="man" />
+				</label>
+				<label for="GenderVrouw">
+					vrouw
+					<input type="radio" id="GenderVrouw" name="gender" value="vrouw" />
+				</label>
+			</section>
+
+			<section class="attractedTo">
+				<h3>ik ben geïnteresseerd in</h3>
+				<label for="attractedToMan">
+					man
+					<input
+						type="checkbox"
+						id="attractedToMan"
+						name="attractedTo"
+						value="man"
+					/>
+				</label>
+				<label for="attractedToWoman">
+					vrouw
+					<input
+						type="checkbox"
+						id="attractedToWoman"
+						name="attractedTo"
+						value="vrouw"
+					/>
+				</label>
+			</section>
+
+			<button type="submit" id="submit">
+				Aanmelden
+			</button>
+		</form>
+
+		<% include ../partials/footer %>
+	</body>
+</html>

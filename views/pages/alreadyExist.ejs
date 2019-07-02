@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<% include ../partials/head %>
+	</head>
+
+	<body>
+		<% include ../partials/nav %>
+
+		<h1>Oeps, we hebben een probleem</h1>
+		<p>
+			Het lijkt erop dat het email adres van <%= email%> al in gebruik is.
+			<a href="/account">Probeer in te loggen</a> of gebruik een ander email
+			adres.
+		</p>
+		<a href="/signUp">terug naar vorige pagina</a>
+
+		<% include ../partials/footer %>
+	</body>
+</html>
