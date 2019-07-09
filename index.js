@@ -5,6 +5,8 @@ const server = require("http").Server(app)
 const path = require("path")
 const rp = require("request-promise")
 const cheerio = require("cheerio")
+const session = require("express-session")
+
 require("dotenv").config()
 require("dotenv-json")()
 
@@ -29,6 +31,13 @@ app.use(
 	})
 )
 app.use(express.static(path.join(__dirname, "./static")))
+app.use(
+	session({
+		resave: false,
+		saveUninitialized: true,
+		secret: process.env.SESSION_SECRET
+	})
+)
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
 

@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<% include ../partials/head %>
+	</head>
 
-<head>
-    <% include ../partials/head %>
-</head>
+	<body>
+		<% include ../partials/nav %> <%= typeof msg != 'undefined' ? msg : '' %>
+		<form
+			id="loginInForm"
+			action="/login"
+			method="POST"
+			enctype="application/x-www-form-urlencoded"
+		>
+			<label for="email">
+				email adres
+				<input
+					type="text"
+					id="email"
+					name="email"
+					placeholder="vul hier je email in"
+					required
+				/>
+			</label>
 
-<body>
-    <% include ../partials/nav %>
+			<label for="password">
+				wachtwoord
+				<input
+					type="password"
+					id="password"
+					name="password"
+					placeholder="vul hier je wachtwoord in"
+					required
+				/>
+			</label>
+			<button type="submit" id="submit">
+				Inloggen
+			</button>
+		</form>
 
-
-    <form id="loginForm" action="">
-        <input type="text" id="email" name="email" placeholder="vul hier je email in">
-        <label for="email">
-            <input type="password" id="password" name="password" placeholder="vul hier je wachtwoord in">
-            <label for="password">
-                <button id="login">login</button>
-                <a href="/signUp">Sign up</a>
-                <button id="logout">logout</button>
-    </form>
-
-
-    <% include ../partials/footer %>
-</body>
-
-
+		<% include ../partials/footer %>
+	</body>
 </html>

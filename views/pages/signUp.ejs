@@ -5,8 +5,7 @@
 	</head>
 
 	<body>
-		<% include ../partials/nav %>
-
+		<% include ../partials/nav %> <%= typeof msg != 'undefined' ? msg : '' %>
 		<form
 			id="loginForm"
 			action="/aanmelden"

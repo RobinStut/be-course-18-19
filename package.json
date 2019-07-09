@@ -24,6 +24,7 @@
     "dotenv-json": "^1.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-session": "^1.16.2",
     "firebase": "^6.0.4",
     "firebase-admin": "^8.0.0",
     "mongodb": "^3.2.7",
