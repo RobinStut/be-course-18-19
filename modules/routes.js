@@ -87,13 +87,13 @@ module.exports = app => {
 					const doesItExist = data.find(findEqualEmail)
 					console.log(doesItExist)
 					if (doesItExist) {
-						console.log("it does")
+						console.log("bestaat al")
 						res.render("pages/signUp", {
 							msg: `het emailadres van ${email} is al in gebruik`
 						})
 					}
 					if (doesItExist === undefined) {
-						console.log("it does not")
+						console.log("bestaat nog niet")
 
 						db.collection("users").insertOne(
 							{ name: name, email: email, password: password },
@@ -104,7 +104,7 @@ module.exports = app => {
 								next(err)
 							} else {
 								console.log("done")
-								console.log(`${data.name}, ${data.email}`)
+								console.log(data)
 							}
 						}
 
